@@ -19,3 +19,6 @@
 *.VC.*db*
 pict
 *.o
+/packages
+/pictclidll-pinvoke/bin
+/pictclidll-pinvoke/obj
