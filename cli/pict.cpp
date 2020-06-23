@@ -102,6 +102,23 @@ int __cdecl execute
 }
 
 //
+// Wrapper method for execute that is p/Invokable from C#.
+//
+int __cdecl executeNet
+(
+    IN     int      argc,
+    IN     wchar_t* args[],
+    IN OUT    wchar_t* output,
+    IN     int      len
+)
+{
+    wstring wideOutput;
+    int ret = execute(argc, args, wideOutput);
+    wcscpy_s(output, len, wideOutput.c_str());
+    return ret;
+}
+
+//
 //
 //
 int __cdecl wmain

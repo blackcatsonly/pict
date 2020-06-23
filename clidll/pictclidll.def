@@ -1,3 +1,4 @@
 LIBRARY PICT
 EXPORTS
+    executeNet
     execute
