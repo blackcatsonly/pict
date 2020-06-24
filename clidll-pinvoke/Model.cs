@@ -86,7 +86,8 @@ namespace PICT
         /// Executes PICT on this <see cref="Model"/>.
         /// </summary>
         /// <returns>
-        /// The output produced by PICT.
+        /// An <see cref="IEnumerable{IEnumerable}"/> list of the
+        /// <see cref="IEnumerable{Tuple}"/> rows of output produced by PICT.
         /// </returns>
         /// <exception cref="Win32Exception">
         /// PICT did not return ERROR_SUCCESS.
@@ -97,11 +98,12 @@ namespace PICT
 
             const char Separator = '\t';
             IEnumerable<string[]> lines = output
-                .Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(line => line.Split(Separator));
+                .Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(line => line.Split(Separator).Select(value => value.Trim()).ToArray());
             string[] categories = lines.First();
-            return categories
-                .Select((category, index) => lines.Select(line => new Tuple<string, string>(category, line[index])));
+            IEnumerable<string[]> tuples = lines.Skip(1);
+            return tuples
+                .Select(tuple => tuple.Select((value, index) => new Tuple<string, string>(categories[index], value)));
         }
 
         /// <summary>

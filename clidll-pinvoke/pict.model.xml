@@ -42,7 +42,8 @@
             Executes PICT on this <see cref="T:PICT.Model"/>.
             </summary>
             <returns>
-            The output produced by PICT.
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> list of the
+            <see cref="T:System.Collections.Generic.IEnumerable`1"/> rows of output produced by PICT.
             </returns>
             <exception cref="T:System.ComponentModel.Win32Exception">
             PICT did not return ERROR_SUCCESS.
