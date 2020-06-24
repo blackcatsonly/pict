@@ -71,7 +71,8 @@ namespace PICT
                 destinationIndex: ExtraExpectedParameterCount,
                 length: args.Length);
 
-            StringBuilder output = new StringBuilder(8192);
+            int modelSize = Math.Min(4096, (int)new FileInfo(args[0]).Length);
+            StringBuilder output = new StringBuilder(modelSize * modelSize);
             int ret = NativeMethods.Execute(input.Length, input, output, output.Capacity);
             switch (ret)
             {
