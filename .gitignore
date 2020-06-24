@@ -26,3 +26,4 @@ pict
 /cli-pinvoke/obj
 /clidll-pinvoke/bin/Debug/netstandard2.0
 /clidll-pinvoke/obj
+/clidll-pinvoke/bin/Release/netstandard2.0
