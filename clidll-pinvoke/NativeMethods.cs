@@ -9,8 +9,6 @@
 
 namespace PICT
 {
-    using System;
-    using System.ComponentModel;
     using System.Runtime.InteropServices;
     using System.Text;
 
@@ -18,48 +16,8 @@ namespace PICT
     /// Class <see cref="NativeMethods"/> declares the p/Invoke syntax for PICT
     /// usage from .NET consumers.
     /// </summary>
-    public static class NativeMethods
+    internal static class NativeMethods
     {
-        /// <summary>
-        /// Executes PICT in-proc with the specified command-line <paramref name="args"/>.
-        /// </summary>
-        /// <param name="args">
-        /// The PICT command-line arguments.
-        /// </param>
-        /// <returns>
-        /// The output produced by PICT.
-        /// </returns>
-        /// <exception cref="Win32Exception">
-        /// PICT did not return ERROR_SUCCESS.
-        /// </exception>
-        public static string Execute(string[] args)
-        {
-            if (args is null)
-            {
-                throw new ArgumentNullException(paramName: nameof(args));
-            }
-
-            const int ExtraExpectedParameterCount = 1;
-            string[] input = new string[args.Length + ExtraExpectedParameterCount];
-            input[0] = "pict"; // This value does not matter but is expected by PICT.
-            Array.ConstrainedCopy(
-                sourceArray: args,
-                sourceIndex: 0,
-                destinationArray: input,
-                destinationIndex: ExtraExpectedParameterCount,
-                length: args.Length);
-
-            StringBuilder output = new StringBuilder(8192);
-            int ret = Execute(input.Length, input, output, output.Capacity);
-            switch (ret)
-            {
-                case 0:
-                    return output.ToString();
-                default:
-                    throw new Win32Exception(ret);
-            }
-        }
-
         /// <summary>
         /// Execute is the entry point to the command-line PICT, and it behaves accordingly.
         /// To use it, we need to mimic the runtime's handling of the console apps.  The second
@@ -85,7 +43,7 @@ namespace PICT
         /// pict.dll exports this method, make sure you have pict.dll next to this executable when running.
         /// </remarks>
         [DllImport("pict.dll", EntryPoint = "executeNet", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
-        private static extern int Execute(
+        internal static extern int Execute(
             [In]int argCount,
             [In][MarshalAs(UnmanagedType.LPArray)] string[] args,
             [In][Out]StringBuilder output,

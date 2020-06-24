@@ -25,7 +25,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pictclidll-usage", "clidll-
 		{33FA938D-1E7C-4001-A3B6-69773B6B9C9B} = {33FA938D-1E7C-4001-A3B6-69773B6B9C9B}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pictclidll-pinvoke", "pictclidll-pinvoke\pictclidll-pinvoke.csproj", "{3B2F6CA0-8099-44D1-A5D9-6B4D68E3A5C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pictclidll-pinvoke", "clidll-pinvoke\pictclidll-pinvoke.csproj", "{C212B3CD-B309-4922-882D-98E7F80E4DB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8A54E6FD-4D8D-42B3-A72A-F9CB24CD9C5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pictcli-pinvoke", "cli-pinvoke\pictcli-pinvoke.csproj", "{3B2F6CA0-8099-44D1-A5D9-6B4D68E3A5C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +91,18 @@ Global
 		{ACD9DAC9-D3F3-42B6-B553-4F7BF7BB81A5}.Release|x64.Build.0 = Release|Win32
 		{ACD9DAC9-D3F3-42B6-B553-4F7BF7BB81A5}.Release|x86.ActiveCfg = Release|Win32
 		{ACD9DAC9-D3F3-42B6-B553-4F7BF7BB81A5}.Release|x86.Build.0 = Release|Win32
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Debug|x64.Build.0 = Debug|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Debug|x86.Build.0 = Debug|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Release|x64.ActiveCfg = Release|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Release|x64.Build.0 = Release|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Release|x86.ActiveCfg = Release|Any CPU
+		{C212B3CD-B309-4922-882D-98E7F80E4DB0}.Release|x86.Build.0 = Release|Any CPU
 		{3B2F6CA0-8099-44D1-A5D9-6B4D68E3A5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B2F6CA0-8099-44D1-A5D9-6B4D68E3A5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B2F6CA0-8099-44D1-A5D9-6B4D68E3A5C0}.Debug|x64.ActiveCfg = Debug|Any CPU

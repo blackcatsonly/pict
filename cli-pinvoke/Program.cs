@@ -19,7 +19,7 @@ namespace PICT
     {
         /// <summary>
         /// The main entry point for the <see cref="Program"/>,
-        /// invokes <see cref="NativeMethods.Execute(string[])"/> to run PICT
+        /// invokes <see cref="Model.Execute(string[])"/> to run PICT
         /// with the specified <paramref name="args"/>.
         /// </summary>
         /// <param name="args">
@@ -33,7 +33,7 @@ namespace PICT
             int exitCode;
             try
             {
-                string output = NativeMethods.Execute(args);
+                string output = Model.Execute(args);
                 Console.WriteLine(output);
                 exitCode = 0;
             }

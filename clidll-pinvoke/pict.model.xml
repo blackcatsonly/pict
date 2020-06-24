@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>pict.model</name>
+    </assembly>
+    <members>
+        <member name="T:PICT.Model">
+            <summary>
+            Class <see cref="T:PICT.Model"/> defines convenience methods to generate
+            and parse PICT models.
+            </summary>
+        </member>
+        <member name="F:PICT.Model.filePath">
+            <summary>
+            Gets the path to the <see cref="T:PICT.Model"/> file.
+            </summary>
+        </member>
+        <member name="M:PICT.Model.#ctor(System.Collections.Generic.IEnumerable{System.Linq.IGrouping{System.String,System.Object}})">
+            <summary>
+            Initiaiizes a new instance of the <see cref="T:PICT.Model"/> class.
+            </summary>
+            <param name="categories">
+            The groups of values to be written to the model.
+            </param>
+        </member>
+        <member name="M:PICT.Model.Execute(System.String[])">
+            <summary>
+            Executes PICT in-proc with the specified command-line <paramref name="args"/>.
+            </summary>
+            <param name="args">
+            The PICT command-line arguments.
+            </param>
+            <returns>
+            The output produced by PICT.
+            </returns>
+            <exception cref="T:System.ComponentModel.Win32Exception">
+            PICT did not return ERROR_SUCCESS.
+            </exception>
+        </member>
+        <member name="M:PICT.Model.Execute">
+            <summary>
+            Executes PICT on this <see cref="T:PICT.Model"/>.
+            </summary>
+            <returns>
+            The output produced by PICT.
+            </returns>
+            <exception cref="T:System.ComponentModel.Win32Exception">
+            PICT did not return ERROR_SUCCESS.
+            </exception>
+        </member>
+        <member name="M:PICT.Model.GenerateModelFile(System.Collections.Generic.IEnumerable{System.Linq.IGrouping{System.String,System.Object}})">
+            <summary>
+            Write the <paramref name="categories"/> to a <see cref="N:PICT"/> <see cref="T:PICT.Model"/> file.
+            </summary>
+            <param name="categories">
+            The category names and values to be written to the <see cref="T:PICT.Model"/>.
+            </param>
+        </member>
+        <member name="M:PICT.Model.GenerateCategoryLine(System.Linq.IGrouping{System.String,System.Object})">
+            <summary>
+            Serialize the <paramref name="category"/> to a line of a <see cref="N:PICT"/>
+            <see cref="T:PICT.Model"/> file.
+            </summary>
+            <param name="category">
+            The category name and values to be written to the <see cref="T:PICT.Model"/> file line.
+            </param>
+        </member>
+        <member name="T:PICT.NativeMethods">
+            <summary>
+            Class <see cref="T:PICT.NativeMethods"/> declares the p/Invoke syntax for PICT
+            usage from .NET consumers.
+            </summary>
+        </member>
+        <member name="M:PICT.NativeMethods.Execute(System.Int32,System.String[],System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Execute is the entry point to the command-line PICT, and it behaves accordingly.
+            To use it, we need to mimic the runtime's handling of the console apps.  The second
+            argument is a path to the model file.
+            </summary>
+            <param name="argCount">
+            The number of arguments being passed to PICT
+            </param>
+            <param name="args">
+            The PICT command-line arguments. The first argument is the name of the program but in
+            this case, the actual value doesn't matter.
+            </param>
+            <param name="output">
+            Gets set to the output produced by PICT.
+            </param>
+            <param name="outputLength">
+            The length of the <paramref name="output"/> buffer.
+            </param>
+            <returns>
+            The Error Code resulting from executing PICT with the command-line <paramref name="args"/>.
+            </returns>
+            <remarks>
+            pict.dll exports this method, make sure you have pict.dll next to this executable when running.
+            </remarks>
+        </member>
+    </members>
+</doc>
